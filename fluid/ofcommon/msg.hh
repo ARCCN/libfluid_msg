@@ -287,7 +287,7 @@ public:
     uint16_t actions_len() {
         return this->actions_len_;
     }
-    ActionList actions() {
+    ActionList& actions() {
         return this->actions_;
     }
     size_t data_len() {
@@ -298,6 +298,9 @@ public:
     }
     void buffer_id(uint32_t buffer_id) {
         this->buffer_id_ = buffer_id;
+    }
+    void actions_len(uint16_t len) {
+        this->actions_len_ = len;
     }
     void actions(ActionList actions);
     void add_action(Action &action);

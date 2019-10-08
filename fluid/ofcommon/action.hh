@@ -70,7 +70,7 @@ public:
     uint16_t length() const {
         return this->length_;
     }
-    const std::list<Action*>& action_list() const {
+    std::list<Action*>& action_list() {
         return this->action_list_;
     }
     void add_action(Action& action);
@@ -107,7 +107,7 @@ public:
     uint16_t length() const {
         return this->length_;
     }
-    const std::set<Action*, comp_action_set_order>& action_set() {
+    std::set<Action*, comp_action_set_order>& action_set() {
         return this->action_set_;
     }
     bool add_action(Action &action);

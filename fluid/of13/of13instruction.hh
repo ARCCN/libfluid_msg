@@ -68,7 +68,7 @@ public:
     uint16_t length() const {
         return this->length_;
     }
-    const std::set<Instruction*, comp_inst_set_order>& instruction_set() const {
+    std::set<Instruction*, comp_inst_set_order>& instruction_set() {
         return this->instruction_set_;
     }    
     void add_instruction(Instruction &inst);
@@ -164,7 +164,7 @@ public:
         return new WriteActions(*this);
     }
     of_error unpack(const uint8_t* buffer);
-    const ActionSet& actions() const {
+    ActionSet& actions() {
         return this->actions_;
     }
     void actions(ActionSet actions);
@@ -193,7 +193,7 @@ public:
     }
     size_t pack(uint8_t* buffer);
     of_error unpack(const uint8_t* buffer);
-    const ActionList& actions() const {
+    ActionList& actions() {
         return this->actions_;
     }
     void actions(ActionList actions);

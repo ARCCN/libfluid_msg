@@ -78,7 +78,7 @@ public:
     bool operator!=(const Port &other) const;
     size_t pack(uint8_t* buffer);
     of_error unpack(const uint8_t* data);
-    uint32_t port_no() const {
+    uint32_t port_no() {
         return this->port_no_;
     }
     uint32_t curr_speed() const {
@@ -195,6 +195,9 @@ public:
     uint16_t len() {
         return this->length_;
     }
+    void len(uint16_t leng) {
+        this->length_ = leng;
+    }
     uint16_t weight() {
         return this->weight_;
     }
@@ -204,7 +207,7 @@ public:
     uint32_t watch_group() {
         return this->watch_group_;
     }
-    ActionSet get_actions() {
+    ActionSet& get_actions() {
         return this->actions_;
     }
     void weight(uint16_t weight) {
@@ -247,10 +250,13 @@ public:
     of13::Match match() const {
         return this->match_;
     }
+    of13::Match& match_ref() {
+        return this->match_;
+    }
     OXMTLV * get_oxm_field(uint8_t field);
     void instructions(InstructionSet instructions);
     void add_instruction(Instruction* inst);
-    InstructionSet instructions() const {
+    InstructionSet& instructions() {
         return this->instructions_;
     }
 };
@@ -453,8 +459,11 @@ public:
     uint32_t group_id() {
         return this->group_id_;
     }
-    std::vector<of13::Bucket> buckets() {
+    std::vector<of13::Bucket>& buckets() {
         return this->buckets_;
+    }
+    void length(uint16_t length) {
+        this->length_ = length;
     }
     void type(uint8_t type) {
         this->type_ = type;

@@ -362,7 +362,10 @@ public:
     of13::Match match() const {
         return this->match_;
     }
-    of13::InstructionSet instructions() const {
+    of13::Match& match_ref() {
+        return this->match_;
+    }
+    of13::InstructionSet& instructions() {
         return this->instructions_;
     }
     OXMTLV * get_oxm_field(uint8_t field);
@@ -506,7 +509,7 @@ public:
     uint32_t group_id() {
         return this->group_id_;
     }
-    std::vector<Bucket> buckets() {
+    std::vector<Bucket>& buckets() {
         return this->buckets_;
     }
     void command(uint16_t command) {
@@ -934,7 +937,7 @@ public:
     bool operator!=(const MultipartRequestQueue &other) const;
     uint8_t* pack();
     of_error unpack(const uint8_t* buffer);
-    uint16_t port_no() {
+    uint32_t port_no() {
         return this->port_no_;
     }
     uint32_t queue_id() {
