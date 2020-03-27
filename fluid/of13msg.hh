@@ -305,6 +305,9 @@ public:
     of13::Match& match() {
         return this->match_;
     }
+    of13::Match& match_ref() {
+        return this->match_;
+    }
     const of13::Match& match() const {
         return this->match_;
     }
@@ -429,6 +432,9 @@ public:
         this->hard_timeout_ = hard_timeout;
     }
     of13::Match match() {
+        return this->match_;
+    }
+    of13::Match& match_ref() {
         return this->match_;
     }
     void match(of13::Match match) {
@@ -681,6 +687,9 @@ public:
     of13::Match match() const {
         return this->match_;
     }
+    of13::Match& match_ref() {
+        return this->match_;
+    }
     uint8_t table_id() const {
         return this->table_id_;
     }
@@ -765,6 +774,9 @@ public:
     uint8_t* pack();
     of_error unpack(const uint8_t* buffer);
     of13::Match match() {
+        return this->match_;
+    }
+    of13::Match& match_ref() {
         return this->match_;
     }
     uint8_t table_id() {
