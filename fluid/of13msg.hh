@@ -524,6 +524,9 @@ public:
     void group_type(uint8_t type) {
         this->group_type_ = type;
     }
+    uint8_t group_type() {
+        return this->group_type_;
+    }
     void group_id(uint32_t group_id) {
         this->group_id_ = group_id;
     }
